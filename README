@@ -1,0 +1,12 @@
+A simple wiki built in Opa.
+===========================
+
+Changes made to the wiki are broadcasted on the embedded chat.
+
+Building
+--------
+  make
+
+Launching
+---------
+  ./opa_wiki.exe --port 8080
