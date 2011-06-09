@@ -97,12 +97,13 @@ Wiki_css = {{
    * On double-click, this viewer will turn into an editor.
    */
   view(config: Wiki_css.config, name): xhtml =
+    page_content = Wiki_css_server.wiki(name)
+      |> String.explode_with("\n", _, false)
+      |> List.map((s -> <>{s}<br /></>), _)
     Option.switch((_ -> // A user is logged in, enable editing
-      <p ondblclick={doEdit(config, name, _)} class="clickable">
-        {Wiki_css_server.wiki(name)}
-      </p>),
+      <p ondblclick={doEdit(config, name, _)} class="clickable">{page_content}</p>),
       // If no user given, disable editing
-      (<p class="clickable">{Wiki_css_server.wiki(name)}</p>),
+      (<p class="clickable">{page_content}</p>),
       config.user)
 
   /**
@@ -113,9 +114,9 @@ Wiki_css = {{
    */
   edit(config: Wiki_css.config, name): xhtml =
     <>
-    <textarea onkeyup={onkeyup} rows={10} cols={50} class="wiki_textarea" id="wiki_textarea_content">
-      {Wiki_css_server.wiki(name)}
-    </textarea>
+    <textarea onkeyup={onkeyup}
+      rows={10} cols={50} class="wiki_textarea"
+      id="wiki_textarea_content">{Wiki_css_server.wiki(name)}</textarea>
     <br/>
     {button("save","Save", save(config: Wiki_css.config, _), name)}
     {button("cancel","Cancel", doView(config: Wiki_css.config, _) ,name )}
