@@ -147,4 +147,10 @@ urls = parser
     do Resource.register_external_css("resources/style.css")
     CApplicationFrame.make(login_app_init, app_config, page_title)
 
-server = Server.secure({no_encryption}, urls)
+/** Server creation (main entry point) */
+server =
+  {
+    Server.secure(Server.ssl_default_params, urls) with
+    encryption = {no_encryption}
+    port       = 8080
+  }

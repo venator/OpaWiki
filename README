@@ -5,8 +5,13 @@ Changes made to the wiki are broadcasted on the embedded chat.
 
 Building
 --------
-  make
+    make
 
 Launching
 ---------
-  ./opa_wiki.exe --port 8080
+
+- On the port 8080:
+    ./opa_wiki.exe
+
+- On another port:
+    ./opa_wiki.exe --port <a_free_port>
