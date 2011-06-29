@@ -1,6 +1,7 @@
 /** This is a module port of Wiki CSS */
 
 //package demowiki.wiki_css
+import stdlib.web.client
 
 /**
  * This example implements a non-trivial wiki without formatting.

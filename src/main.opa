@@ -29,7 +29,7 @@
 // TODO: properly document the code
 // TODO: server-side checking of the right to edit a page
 
-import components.applicationframe
+import stdlib.components.applicationframe
 
 /**
  * Static users for demo purpose. A real-life usage would be to use a DB for

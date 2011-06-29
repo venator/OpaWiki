@@ -1,7 +1,7 @@
 /** This is a port of demochat v2 to a module */
 
 //package demowiki.min_chat
-import widgets.{core,button}
+import stdlib.widgets.{core,button}
 
 type Min_chat.config = {
   user_style_of_kind: Min_chat.mess_kind -> WStyler.styler
